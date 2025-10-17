@@ -1,136 +1,123 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anne Lorraine S. Manalang — Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
-  <meta name="description" content="Anne Lorraine S. Manalang — Computer Science student portfolio (Attack on Titan themed)" />
+  <meta name="description" content="Anne Lorraine S. Manalang — Computer Science student portfolio (Attack on Titan theme)" />
+  
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Accessibility Skip Link -->
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <header class="site-header" role="banner" aria-label="Site header">
-    <div class="brand">
-      <img src="assets/profile.jpg" alt="Profile photo of Anne Lorraine S. Manalang" class="brand-img">
-      <div>
-        <h1 class="site-title">Anne Lorraine S. Manalang</h1>
-        <p class="tagline">“Kung hindi ako makakagraduate edi bwisit kayong lahat” • Computer Science Student</p>
-      </div>
+  <!-- Header -->
+  <header class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Anne Lorraine S. Manalang</h1>
+      <p class="tagline">“Kung hindi ako makakagraduate edi bwisit kayong lahat” • Computer Science Student • Future Software Engineer (pag hindi pinalad, future mo na lang)</p>
+      <button class="btn" onclick="toggleMusic()">🎵 Toggle Music</button>
     </div>
-
-    <nav class="top-nav" role="navigation" aria-label="Primary">
-      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navList">☰ Menu</button>
-      <ul id="navList" class="nav-list">
-        <li><a href="#home" class="nav-link">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#resume" class="nav-link">Resume</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-    </nav>
   </header>
 
-  <!-- Banner / Hero -->
-  <section id="home" class="hero" role="region" aria-label="Hero section">
-    <div class="hero-overlay"></div>
-    <div class="hero-inner">
-      <h2 class="hero-title">Attack of Dreams, Code & Coffee</h2>
-      <p class="hero-sub">Dark aesthetic • Interactive portfolio • Accessible</p>
+  <!-- Background Music -->
+  <audio id="bgMusic" loop>
+    <source src="https://files.catbox.moe/lmx9ny.mp3" type="audio/mpeg">
+  </audio>
 
-      <div class="hero-actions">
-        <a class="btn" href="#projects">See Projects</a>
-        <a class="btn btn-outline" href="#resume">View Resume</a>
-        <button id="musicToggle" class="btn btn-music" aria-pressed="false" aria-label="Toggle background music">Play OST</button>
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="about-container">
+        <img src="https://drive.google.com/uc?export=view&id=1XWnetwTmm_zvYWAdPAgN2f-SCM9ztc2i" alt="Profile photo of Anne Lorraine S. Manalang">
+        <p>
+          I’m 19 years old, from Lipa City, Batangas. I’m an introvert who loves playing chess, drinking coffee, and visiting different coffee shops.
+          Kung interested ka sakin, gawa ka muna ng 1000-word essay bakit mo ako gustong makilala pa.
+        </p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <main id="main" tabindex="-1">
-    <!-- About -->
-    <section id="about" class="section" aria-labelledby="about-heading">
-      <h2 id="about-heading">About Me</h2>
-      <div class="card about-card">
-        <img src="assets/profile.jpg" alt="Anne Lorraine smiling" class="profile-large">
-        <div class="about-text">
-          <p><strong>Anne Lorraine S. Manalang</strong> — 19 years old from Lipa City, Batangas. I'm an introvert who loves chess and coffee shop hopping. Kung interesado ka sakin, gawa ka muna ng 1000-word essay bakit mo ako gustong makilala pa.</p>
-          <p><strong>Role:</strong> Computer Science student • Future Software Engineer</p>
+    <!-- RESUME SECTION -->
+    <section id="resume">
+      <h2>Education & Skills</h2>
+      <div class="resume-grid">
+        <div>
+          <h3>Education</h3>
+          <ul>
+            <li>Daycare–Grade 6 | Bulaklakan Elementary School</li>
+            <li>Grade 7–10 | Pinagtongulan Integrated National High School</li>
+            <li>Grade 11–12 | Fernando Air Base Integrated National High School</li>
+            <li>BS Computer Science | Citi Global College, Cabuyao Campus</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Key Skills</h3>
+          <ul>
+            <li>Photo and Video Editing</li>
+            <li>Coding and Web Design</li>
+            <li>Good Communicator</li>
+            <li>Wadhwani Employability Skills (JobReady, Entrepreneurship, Data Security, etc.)</li>
+            <li>NSTP Seminars: Data Warehousing, Cybersecurity, AI in Weather Forecasting, Data Science, NLP</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- Resume -->
-    <section id="resume" class="section" aria-labelledby="resume-heading">
-      <h2 id="resume-heading">Resume & Skills</h2>
-      <div class="card">
-        <h3>Education</h3>
-        <ul>
-          <li>Bulaklakan Elementary School (Daycare–Grade 6)</li>
-          <li>Pinagtongulan Integrated NHS (Grade 7–10)</li>
-          <li>Fernando Air Base INHS (Grade 11–12)</li>
-          <li>Citi Global College Cabuyao Campus — BS Computer Science (current)</li>
-        </ul>
-
-        <h3>Key Skills</h3>
-        <ul>
-          <li>Photo & Video Editing</li>
-          <li>Coding (HTML, CSS, JS basics)</li>
-          <li>Communication & freelancing experience</li>
-          <li>Data seminars: SQL, AI, Visualization</li>
-        </ul>
-
-        <p>Freelancing profile: <a href="https://www.onlinejobs.ph/jobseekers/info/3882889" target="_blank" rel="noopener" class="external">onlinejobs.ph</a></p>
+    <!-- PROJECTS SECTION -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <h3>NSTP — Cleaning the Community</h3>
+          <p>Promoting cleanliness and community awareness through collaborative volunteering.</p>
+          <a href="https://drive.google.com/file/d/12FxURXlQLUrGClNljdUsYhJf6ga89nOC/view?usp=sharing" target="_blank" class="btn">View Video</a>
+        </div>
+        <div class="project-card">
+          <h3>Promotional Video (2A1-2BSCS)</h3>
+          <p>Our class won 2nd place across the campus! A project that truly made an impact on us.</p>
+          <a href="https://drive.google.com/drive/folders/17ox3VdaIWTdawzKljdkN_oq_8zKtyUd6?usp=sharing" target="_blank" class="btn">View Folder</a>
+        </div>
       </div>
     </section>
 
-    <!-- Projects -->
-    <section id="projects" class="section" aria-labelledby="projects-heading">
-      <h2 id="projects-heading">Projects</h2>
-      <div class="projects-grid" role="list">
-        <article class="project-card" role="listitem">
-          <h3>NSTP – Cleaning the Community</h3>
-          <p>Community clean-up project under NSTP.</p>
-          <a class="link" href="https://drive.google.com/file/d/12FxURXlQLUrGClNljdUsYhJf6ga89nOC/view?usp=sharing" target="_blank" rel="noopener">Watch Video</a>
-        </article>
-
-        <article class="project-card" role="listitem">
-          <h3>Promotional Video</h3>
-          <p>2nd place campus-wide promo video. Big impact for our team.</p>
-          <a class="link" href="https://drive.google.com/drive/folders/17ox3VdaIWTdawzKljdkN_oq_8zKtyUd6?usp=sharing" target="_blank" rel="noopener">Watch Video</a>
-        </article>
-      </div>
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <p>Feel free to reach out via email or check my online profile!</p>
+      <a href="mailto:annelorrainesmanalang.cgc@gmail.com" class="btn">📧 Send an Email</a>
+      <a href="https://www.onlinejobs.ph/jobseekers/info/3882889" target="_blank" class="btn secondary">🌐 Visit My Freelance Profile</a>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="section" aria-labelledby="contact-heading">
-      <h2 id="contact-heading">Contact</h2>
-      <div class="card contact-card">
-        <p>If you'd like to reach me, please email:</p>
-        <p><a href="mailto:annelorrainesmanalang.cgc@gmail.com" class="link contact-link">annelorrainesmanalang.cgc@gmail.com</a></p>
-        <p>Or use this quick message form:</p>
-        <form class="contact-form" action="mailto:annelorrainesmanalang.cgc@gmail.com" method="GET" onsubmit="return validateForm(this);">
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" required aria-required="true" placeholder="Your name">
-
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="4" required aria-required="true" placeholder="Hi Anne, ..."></textarea>
-
-          <button type="submit" class="btn">Send Email</button>
-        </form>
-      </div>
-    </section>
   </main>
 
-  <footer class="site-footer" role="contentinfo">
-    <p>© <span id="year"></span> Anne Lorraine S. Manalang • Built with ❤️ and coffee</p>
+  <footer>
+    <p>© 2025 Anne Lorraine S. Manalang | Attack on Titan Theme</p>
   </footer>
 
-  <!-- Audio (optional) -->
-  <audio id="bgMusic" loop preload="none">
-    <source src="assets/music.mp3" type="audio/mpeg">
-    <!-- If you cannot add music, remove this element or leave it empty -->
-  </audio>
-
-  <script src="script.js" defer></script>
+  <script>
+    function toggleMusic() {
+      const music = document.getElementById("bgMusic");
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+    }
+  </script>
 </body>
 </html>
