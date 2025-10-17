@@ -1,287 +1,34 @@
-/* ==============================
-   ATTACK ON TITAN PORTFOLIO THEME
-   by Anne Lorraine S. Manalang
-   ============================== */
+/* =========================================
+   Attack on Titan Portfolio Scroll Animation
+   Accessible and Lightweight
+   ========================================= */
 
-:root {
-  --dark-bg: #0a0a0a;
-  --crimson: #b91c1c;
-  --light-crimson: #ef4444;
-  --smoke: rgba(255, 255, 255, 0.1);
-  --text-light: #f9f9f9;
-  --text-muted: #c7c7c7;
-  --font-main: 'Titillium Web', sans-serif;
-  --font-heading: 'Bebas Neue', sans-serif;
-}
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll("section");
 
-/* Reset & Base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  const options = {
+    threshold: 0.2,
+    rootMargin: "0px 0px -50px 0px",
+  };
 
-html {
-  scroll-behavior: smooth;
-}
+  const appearOnScroll = new IntersectionObserver(function (entries, observer) {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    });
+  }, options);
 
-body {
-  font-family: var(--font-main);
-  background-color: var(--dark-bg);
-  color: var(--text-light);
-  line-height: 1.6;
-}
+  sections.forEach((section) => {
+    section.classList.add("hidden");
+    appearOnScroll.observe(section);
+  });
+});
 
-/* Accessibility skip link */
-.skip-link {
-  position: absolute;
-  left: -999px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-.skip-link:focus {
-  position: static;
-  width: auto;
-  height: auto;
-  padding: 10px;
-  background: var(--crimson);
-  color: white;
-  z-index: 1000;
-}
-
-/* HERO SECTION */
-.hero {
-  position: relative;
-  background: url("https://wallpapercave.com/wp/wp6429946.jpg") center/cover no-repeat;
-  height: 90vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  overflow: hidden;
-}
-
-.hero .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(10, 10, 10, 0.7);
-  backdrop-filter: blur(2px);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  padding: 20px;
-}
-
-.hero h1 {
-  font-family: var(--font-heading);
-  font-size: 3.5rem;
-  letter-spacing: 2px;
-  text-shadow: 0 0 15px var(--crimson);
-  animation: fadeIn 2s ease-in;
-}
-
-.tagline {
-  font-size: 1rem;
-  color: var(--text-muted);
-  margin: 15px 0;
-}
-
-.btn {
-  background: var(--crimson);
-  border: none;
-  padding: 10px 20px;
-  color: white;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-.btn:hover {
-  background: var(--light-crimson);
-  transform: scale(1.1);
-}
-
-.btn.secondary {
-  background: transparent;
-  border: 2px solid var(--crimson);
-}
-
-.btn.secondary:hover {
-  background: var(--crimson);
-}
-
-/* NAVIGATION */
-nav {
-  background: rgba(10, 10, 10, 0.9);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  backdrop-filter: blur(6px);
-}
-
-nav ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  padding: 10px;
-}
-
-nav a {
-  color: var(--text-light);
-  text-decoration: none;
-  margin: 0 20px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  transition: color 0.3s;
-}
-
-nav a:hover {
-  color: var(--crimson);
-}
-
-/* SECTIONS */
-section {
-  padding: 80px 20px;
-  max-width: 1000px;
-  margin: auto;
-  animation: fadeInUp 1s ease forwards;
-}
-
-section h2 {
-  font-family: var(--font-heading);
-  font-size: 2.5rem;
-  color: var(--light-crimson);
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-/* ABOUT */
-.about-container {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
-}
-
-.about-container img {
-  width: 200px;
-  height: 200px;
-  border-radius: 100%;
-  border: 3px solid var(--crimson);
-  object-fit: cover;
-  box-shadow: 0 0 15px var(--light-crimson);
-}
-
-.about-container p {
-  max-width: 600px;
-  text-align: justify;
-  color: var(--text-muted);
-  font-size: 1.1rem;
-}
-
-/* RESUME */
-.resume-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-}
-
-.resume-grid h3 {
-  color: var(--crimson);
-  font-family: var(--font-heading);
-  margin-bottom: 10px;
-}
-
-.resume-grid ul {
-  list-style: none;
-}
-
-.resume-grid li {
-  margin: 8px 0;
-  color: var(--text-muted);
-}
-
-/* PROJECTS */
-.project-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-}
-
-.project-card {
-  background: var(--smoke);
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
-  transition: transform 0.3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-5px) scale(1.03);
-}
-
-.project-card h3 {
-  color: var(--crimson);
-  margin-bottom: 10px;
-}
-
-.project-card p {
-  color: var(--text-muted);
-  margin-bottom: 15px;
-}
-
-/* CONTACT */
-#contact {
-  text-align: center;
-}
-
-#contact p {
-  color: var(--text-muted);
-  margin-bottom: 20px;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 30px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--text-muted);
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.5rem;
+/* =============== Accessibility Helper =============== */
+document.addEventListener("keyup", (e) => {
+  // Press Tab to show outline for keyboard users
+  if (e.key === "Tab") {
+    document.body.classList.add("user-is-tabbing");
   }
-
-  .resume-grid, .project-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .about-container {
-    flex-direction: column;
-  }
-}
-
-/* ANIMATIONS */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeInUp {
-  0% { opacity: 0; transform: translateY(40px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
+});
