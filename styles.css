@@ -285,3 +285,22 @@ footer {
   0% { opacity: 0; transform: translateY(40px); }
   100% { opacity: 1; transform: translateY(0); }
 }
+
+/* SCROLL ANIMATION STATES */
+.hidden {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease-out;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Accessibility: only show focus outlines when tabbing */
+body.user-is-tabbing button:focus,
+body.user-is-tabbing a:focus {
+  outline: 2px solid var(--light-crimson);
+  outline-offset: 3px;
+}
